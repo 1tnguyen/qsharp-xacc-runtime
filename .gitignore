@@ -36,3 +36,7 @@ build/
 
 # Third-party/External libraries
 tpls/
+
+# .NET binary
+obj/
+bin/
