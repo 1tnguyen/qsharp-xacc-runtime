@@ -1,5 +1,7 @@
-project(qsharp-xacc-runtime VERSION 1.0.0 LANGUAGES CXX)
 cmake_minimum_required(VERSION 3.2.0 FATAL_ERROR)
+cmake_policy(SET CMP0048 NEW)
+
+project(qsharp-xacc-runtime VERSION 1.0.0 LANGUAGES CXX)
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
 
 set(CMAKE_STANDARD_REQUIRED ON)
@@ -21,9 +23,6 @@ ExternalProject_Add(
 # Set the install directory accordingly
 set(XACC_DIR "$ENV{HOME}/.xacc")
 endif()
-
-# Find Xacc (required)
-find_package(XACC REQUIRED)
 
 # include directories
 add_subdirectory("src")

@@ -22,11 +22,12 @@ RUN apt-get update \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
     && apt-get -y install git openssh-client less iproute2 procps lsb-release \
-    # # Install C++ tools
+    # Install C++ tools
     && apt-get -y install --no-install-recommends software-properties-common build-essential \
     gcc g++ gdb cppcheck valgrind python3 libpython3-dev python3-pip \
     cmake libcurl4-openssl-dev libunwind-dev libblas-dev liblapack-dev \
-    #
+    # Install Microsoft Q# SDK
+    && dotnet new -i Microsoft.Quantum.ProjectTemplates \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
